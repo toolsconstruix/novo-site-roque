@@ -51,7 +51,7 @@ export const Services = () => {
           {services.map((service, index) => (
             <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
               {/* Imagem do serviço */}
-              <div className="relative h-64 overflow-hidden">
+              <div className="relative h-80 md:h-96 overflow-hidden">
                 <img 
                   src={service.image} 
                   alt={service.title}
