@@ -1,43 +1,22 @@
 
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
+import { useEffect } from "react";
+import { Phone, Mail, MapPin, Clock } from "lucide-react";
 
 export const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    service: '',
-    message: ''
-  });
-  const { toast } = useToast();
+  useEffect(() => {
+    // Carrega o script do LeadConnector
+    const script = document.createElement('script');
+    script.src = 'https://link.msgsndr.com/js/form_embed.js';
+    script.async = true;
+    document.body.appendChild(script);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Here you would typically send the form data to your backend
-    toast({
-      title: "Quote Request Sent!",
-      description: "We'll contact you within 24 hours with your free quote.",
-    });
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      service: '',
-      message: ''
-    });
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
+    return () => {
+      // Limpa o script quando o componente for desmontado
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
+    };
+  }, []);
 
   return (
     <section id="contact" className="py-20 bg-white">
@@ -53,106 +32,28 @@ export const Contact = () => {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-16">
-          {/* Contact Form */}
+          {/* LeadConnector Form */}
           <div className="bg-gray-50 rounded-2xl p-8">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">Request a Free Quote</h3>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-4">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                    Full Name *
-                  </label>
-                  <Input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className="w-full"
-                    placeholder="Your full name"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-                    Phone Number *
-                  </label>
-                  <Input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    required
-                    className="w-full"
-                    placeholder="(555) 123-4567"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                  Email Address *
-                </label>
-                <Input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="w-full"
-                  placeholder="your@email.com"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-2">
-                  Service Needed *
-                </label>
-                <select
-                  id="service"
-                  name="service"
-                  value={formData.service}
-                  onChange={handleChange}
-                  required
-                  className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent"
-                >
-                  <option value="">Select a service</option>
-                  <option value="residential">Residential Cleaning</option>
-                  <option value="commercial">Commercial Cleaning</option>
-                  <option value="deep">Deep Cleaning</option>
-                  <option value="windows">Window Cleaning</option>
-                  <option value="construction">Post-Construction Cleanup</option>
-                  <option value="pressure">Pressure Washing</option>
-                  <option value="custom">Custom Service</option>
-                </select>
-              </div>
-
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                  Additional Details
-                </label>
-                <Textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  rows={4}
-                  className="w-full"
-                  placeholder="Tell us about your cleaning needs, property size, frequency, etc."
-                />
-              </div>
-
-              <Button 
-                type="submit" 
-                size="lg" 
-                className="w-full bg-green-600 hover:bg-green-700 text-white py-4"
-              >
-                <Send className="h-5 w-5 mr-2" />
-                Get My Free Quote
-              </Button>
-            </form>
+            <h3 className="text-2xl font-bold text-gray-900 mb-6">Solicite um Orçamento</h3>
+            <div className="w-full h-[1176px] overflow-hidden">
+              <iframe
+                src="https://api.leadconnectorhq.com/widget/form/iNYZMsogKJDG7kCAlImP"
+                style={{ width: '100%', height: '100%', border: 'none', borderRadius: '3px' }}
+                id="inline-iNYZMsogKJDG7kCAlImP"
+                data-layout="{'id':'INLINE'}"
+                data-trigger-type="alwaysShow"
+                data-trigger-value=""
+                data-activation-type="alwaysActivated"
+                data-activation-value=""
+                data-deactivation-type="neverDeactivate"
+                data-deactivation-value=""
+                data-form-name="form_site_roque"
+                data-height="1176"
+                data-layout-iframe-id="inline-iNYZMsogKJDG7kCAlImP"
+                data-form-id="iNYZMsogKJDG7kCAlImP"
+                title="form_site_roque"
+              ></iframe>
+            </div>
 
             <p className="text-sm text-gray-600 mt-4 text-center">
               * We typically respond within 2 hours during business hours
