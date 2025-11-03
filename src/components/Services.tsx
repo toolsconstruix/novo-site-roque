@@ -9,28 +9,28 @@ export const Services = () => {
       title: "Deck - Fences - Carpentry",
       description: "Expert carpentry services including custom deck construction, fence installation, and general carpentry work.",
       features: ["Custom Deck Building", "Fence Installation & Repair", "Carpentry & Woodwork", "Outdoor Structures"],
-      image: "/service-deck.jpg"
+      image: "/service-deck.webp"
     },
     {
       icon: Brush,
       title: "Exterior & Interior Painting",
       description: "Professional painting services for both interior and exterior spaces with premium quality materials.",
       features: ["Interior Wall Painting", "Exterior House Painting", "Trim & Detail Work", "Color Consultation"],
-      image: "/service-painting.jpg"
+      image: "/service-painting.webp"
     },
     {
       icon: Sparkles,
       title: "Landscape",
       description: "Complete landscaping solutions to transform your outdoor space into a beautiful and functional area.",
       features: ["Garden Design & Installation", "Lawn Care & Maintenance", "Hardscape Installation", "Irrigation Systems"],
-      image: "/service-landscape.jpg"
+      image: "/service-landscape.webp"
     },
     {
       icon: Building,
       title: "Construction & Remodeling",
       description: "Full-scale construction and remodeling services to renovate and enhance your property.",
       features: ["Home Additions", "Kitchen & Bathroom Remodeling", "Structural Modifications", "Complete Renovations"],
-      image: "/service-construction.jpg"
+      image: "/service-construction.webp"
     }
   ];
 
@@ -57,8 +57,13 @@ export const Services = () => {
                   alt={service.title}
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                   onError={(e) => {
-                    // Fallback para placeholder se a imagem não carregar
-                    e.currentTarget.src = '/placeholder.svg';
+                    const current = e.currentTarget.src;
+                    // Se falhar o webp, tenta o jpg; se já estiver em jpg, cai para placeholder
+                    if (current.endsWith('.webp')) {
+                      e.currentTarget.src = current.replace('.webp', '.jpg');
+                    } else {
+                      e.currentTarget.src = '/placeholder.svg';
+                    }
                   }}
                 />
                 <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm p-3 rounded-lg">
