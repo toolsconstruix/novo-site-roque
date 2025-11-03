@@ -77,10 +77,8 @@ export const Contact = () => {
                 </div>
                 <div>
                   <h4 className="font-bold text-gray-900 mb-1">Phone</h4>
-                  <p className="text-gray-600">Call us for immediate assistance</p>
-                  <a href="tel:+15551234567" className="text-primary font-medium hover:underline">
-                    (555) 123-4567
-                  </a>
+                  <a href="tel:+17815269534" className="text-gray-600 block">Call: +1 (781) 526-9534</a>
+                  <a href="sms:+13396748936" className="text-gray-600 block">Text: +1 (339) 674-8936</a>
                 </div>
               </div>
 
@@ -91,8 +89,8 @@ export const Contact = () => {
                 <div>
                   <h4 className="font-bold text-gray-900 mb-1">Email</h4>
                   <p className="text-gray-600">Send us your questions anytime</p>
-                  <a href="mailto:info@roquegservices.com" className="text-primary font-medium hover:underline">
-                    info@roquegservices.com
+                  <a href="mailto:roquegservices@gmail.com" className="text-primary font-medium hover:underline">
+                    roquegservices@gmail.com
                   </a>
                 </div>
               </div>
@@ -102,10 +100,10 @@ export const Contact = () => {
                   <MapPin className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-gray-900 mb-1">Service Area</h4>
-                  <p className="text-gray-600">We proudly serve the greater metropolitan area</p>
+                  <h4 className="font-bold text-gray-900 mb-1">Address</h4>
+                  <p className="text-gray-600">138 N Union St. #01</p>
                   <p className="text-primary font-medium">
-                    50-mile radius coverage
+                    Arlington - MA - 02474
                   </p>
                 </div>
               </div>
@@ -132,10 +130,10 @@ export const Contact = () => {
                 post-event cleanup, and other urgent situations.
               </p>
               <a 
-                href="tel:+15551234567" 
+                href="tel:+17815269534" 
                 className="text-green-600 font-medium hover:underline"
               >
-                Call our emergency line: (555) 123-4567
+                Call our emergency line: +1 (781) 526-9534
               </a>
             </div>
           </div>

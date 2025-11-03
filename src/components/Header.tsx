@@ -22,11 +22,11 @@ export const Header = () => {
           <div className="flex items-center space-x-4">
             <div className="flex items-center space-x-1">
               <Phone className="h-4 w-4" />
-              <span>(555) 123-4567</span>
+              <span>+1 (781) 526-9534</span>
             </div>
             <div className="flex items-center space-x-1">
               <Mail className="h-4 w-4" />
-              <span>info@roquegservices.com</span>
+              <span>roquegservices@gmail.com</span>
             </div>
           </div>
         </div>
@@ -35,9 +35,9 @@ export const Header = () => {
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center">
             <img 
-              src="/lovable-uploads/3fbb8511-922a-4d94-af51-e8c8ccbdf4ce.png" 
+              src="/logo_roque_231x199px.webp" 
               alt="Roque G Services Logo" 
-              className="h-12 w-auto"
+              className="h-16 w-auto"
             />
           </div>
 
