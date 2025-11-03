@@ -37,9 +37,8 @@ export const Header = () => {
             <img 
               src="/lovable-uploads/3fbb8511-922a-4d94-af51-e8c8ccbdf4ce.png" 
               alt="Roque G Services Logo" 
-              className="h-12 w-12 mr-3"
+              className="h-12 w-auto"
             />
-            <h1 className="text-2xl font-bold text-primary">Roque G Services</h1>
           </div>
 
           {/* Desktop Navigation */}
