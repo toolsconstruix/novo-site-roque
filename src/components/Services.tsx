@@ -8,25 +8,29 @@ export const Services = () => {
       icon: Home,
       title: "Deck - Fences - Carpentry",
       description: "Expert carpentry services including custom deck construction, fence installation, and general carpentry work.",
-      features: ["Custom Deck Building", "Fence Installation & Repair", "Carpentry & Woodwork", "Outdoor Structures"]
+      features: ["Custom Deck Building", "Fence Installation & Repair", "Carpentry & Woodwork", "Outdoor Structures"],
+      image: "/service-deck.jpg"
     },
     {
       icon: Brush,
       title: "Exterior & Interior Painting",
       description: "Professional painting services for both interior and exterior spaces with premium quality materials.",
-      features: ["Interior Wall Painting", "Exterior House Painting", "Trim & Detail Work", "Color Consultation"]
+      features: ["Interior Wall Painting", "Exterior House Painting", "Trim & Detail Work", "Color Consultation"],
+      image: "/service-painting.jpg"
     },
     {
       icon: Sparkles,
       title: "Landscape",
       description: "Complete landscaping solutions to transform your outdoor space into a beautiful and functional area.",
-      features: ["Garden Design & Installation", "Lawn Care & Maintenance", "Hardscape Installation", "Irrigation Systems"]
+      features: ["Garden Design & Installation", "Lawn Care & Maintenance", "Hardscape Installation", "Irrigation Systems"],
+      image: "/service-landscape.jpg"
     },
     {
       icon: Building,
       title: "Construction & Remodeling",
       description: "Full-scale construction and remodeling services to renovate and enhance your property.",
-      features: ["Home Additions", "Kitchen & Bathroom Remodeling", "Structural Modifications", "Complete Renovations"]
+      features: ["Home Additions", "Kitchen & Bathroom Remodeling", "Structural Modifications", "Complete Renovations"],
+      image: "/service-construction.jpg"
     }
   ];
 
@@ -45,34 +49,48 @@ export const Services = () => {
 
         <div className="grid md:grid-cols-2 gap-8">
           {services.map((service, index) => (
-            <div key={index} className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300">
-              <div className="flex items-center mb-6">
-                <div className="bg-primary/10 p-3 rounded-lg mr-4">
+            <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+              {/* Imagem do serviço */}
+              <div className="relative h-64 overflow-hidden">
+                <img 
+                  src={service.image} 
+                  alt={service.title}
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  onError={(e) => {
+                    // Fallback para placeholder se a imagem não carregar
+                    e.currentTarget.src = '/placeholder.svg';
+                  }}
+                />
+                <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm p-3 rounded-lg">
                   <service.icon className="h-8 w-8 text-primary" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900">{service.title}</h3>
               </div>
-              
-              <p className="text-gray-600 mb-6 leading-relaxed">
-                {service.description}
-              </p>
-              
-              <ul className="space-y-2 mb-6">
-                {service.features.map((feature, featureIndex) => (
-                  <li key={featureIndex} className="flex items-center text-gray-700">
-                    <div className="w-2 h-2 bg-accent rounded-full mr-3"></div>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-              
-              <Button 
-                variant="outline" 
-                className="w-full border-primary text-primary hover:bg-primary hover:text-white"
-                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              >
-                Get Quote for This Service
-              </Button>
+
+              {/* Conteúdo do card */}
+              <div className="p-8">
+                <h3 className="text-xl font-bold text-gray-900 mb-4">{service.title}</h3>
+                
+                <p className="text-gray-600 mb-6 leading-relaxed">
+                  {service.description}
+                </p>
+                
+                <ul className="space-y-2 mb-6">
+                  {service.features.map((feature, featureIndex) => (
+                    <li key={featureIndex} className="flex items-center text-gray-700">
+                      <div className="w-2 h-2 bg-accent rounded-full mr-3"></div>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+                
+                <Button 
+                  variant="outline" 
+                  className="w-full border-primary text-primary hover:bg-primary hover:text-white"
+                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                >
+                  Get Quote for This Service
+                </Button>
+              </div>
             </div>
           ))}
         </div>
