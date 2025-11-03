@@ -9,28 +9,28 @@ export const Services = () => {
       title: "Deck - Fences - Carpentry",
       description: "Expert carpentry services including custom deck construction, fence installation, and general carpentry work.",
       features: ["Custom Deck Building", "Fence Installation & Repair", "Carpentry & Woodwork", "Outdoor Structures"],
-      image: "/service-deck.webp"
+      image: "/gallery-1.webp"
     },
     {
       icon: Brush,
       title: "Exterior & Interior Painting",
       description: "Professional painting services for both interior and exterior spaces with premium quality materials.",
       features: ["Interior Wall Painting", "Exterior House Painting", "Trim & Detail Work", "Color Consultation"],
-      image: "/service-painting.webp"
+      image: "/gallery-2.webp"
     },
     {
       icon: Sparkles,
       title: "Landscape",
       description: "Complete landscaping solutions to transform your outdoor space into a beautiful and functional area.",
       features: ["Garden Design & Installation", "Lawn Care & Maintenance", "Hardscape Installation", "Irrigation Systems"],
-      image: "/service-landscape.webp"
+      image: "/gallery-3.webp"
     },
     {
       icon: Building,
       title: "Construction & Remodeling",
       description: "Full-scale construction and remodeling services to renovate and enhance your property.",
       features: ["Home Additions", "Kitchen & Bathroom Remodeling", "Structural Modifications", "Complete Renovations"],
-      image: "/service-construction.webp"
+      image: "/gallery-4.webp"
     }
   ];
 
