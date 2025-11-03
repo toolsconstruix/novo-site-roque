@@ -63,16 +63,9 @@ export const Testimonials = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
             <div key={index} className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300">
-              <div className="flex items-center mb-6">
-                <img 
-                  src={testimonial.image} 
-                  alt={testimonial.name}
-                  className="w-16 h-16 rounded-full object-cover mr-4"
-                />
-                <div>
-                  <h4 className="font-bold text-gray-900">{testimonial.name}</h4>
-                  <p className="text-gray-600 text-sm">{testimonial.role}</p>
-                </div>
+              <div className="mb-6">
+                <h4 className="font-bold text-gray-900">{testimonial.name}</h4>
+                <p className="text-gray-600 text-sm">{testimonial.role}</p>
               </div>
 
               <div className="flex mb-4">
