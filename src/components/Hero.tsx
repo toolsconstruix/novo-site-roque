@@ -79,9 +79,18 @@ export const Hero = () => {
           <div className="relative">
             <div className="bg-white p-8 rounded-2xl shadow-2xl">
               <img 
-                src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=800&q=80" 
-                alt="Professional construction team at work" 
+                src="/hero.webp" 
+                alt="Roque G Services - featured project"
+                loading="eager"
                 className="w-full h-96 object-cover rounded-xl"
+                onError={(e) => {
+                  const current = e.currentTarget.src;
+                  if (current.endsWith('.webp')) {
+                    e.currentTarget.src = current.replace('.webp', '.jpg');
+                  } else {
+                    e.currentTarget.src = '/placeholder.svg';
+                  }
+                }}
               />
               <div className="absolute -bottom-6 -left-6 bg-accent text-white p-6 rounded-xl shadow-lg">
                 <div className="text-2xl font-bold">8+</div>
